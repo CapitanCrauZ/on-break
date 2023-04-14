@@ -1,0 +1,44 @@
+﻿<Window x:Class="WpfOnBreak.WindowListaClientes"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfOnBreak"
+        mc:Ignorable="d"
+        Title="WindowListaClientes" Height="505" Width="585">
+    <Grid Margin="0,0,-8,-1">
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="Black" Offset="1"/>
+                <GradientStop Color="#FF3894A8"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="98*"/>
+            <ColumnDefinition Width="487*"/>
+        </Grid.ColumnDefinitions>
+        <DataGrid Name ="dgClientes"  HorizontalAlignment="Left" Height="357" Margin="10,66,0,0" VerticalAlignment="Top" Width="550" AutoGenerateColumns="False" SelectionChanged="dgClientes_SelectionChanged" IsManipulationEnabled="True" Grid.ColumnSpan="2" FontWeight="Bold">
+
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Rut" Binding ="{Binding Rut}"/>
+                <DataGridTextColumn Header="Razón Social" Binding ="{Binding RazonSocial}"/>
+                <DataGridTextColumn Header="Nombre Contacto" Binding ="{Binding NombreContacto}"/>
+                <DataGridTextColumn Header="Mail Contacto" Binding ="{Binding MailContacto}"/>
+                <DataGridTextColumn Header="Dirección" Binding ="{Binding Direccion}"/>
+                <DataGridTextColumn Header="Telefono" Binding ="{Binding Telefono}"/>
+                <DataGridTextColumn Header="Actividad" Binding ="{Binding Actividad}"/>
+                <DataGridTextColumn Header="Tipo" Binding ="{Binding Tipo}"/>
+            </DataGrid.Columns>
+            <DataGrid.RowDetailsTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding Details}" Margin="10" />
+                </DataTemplate>
+            </DataGrid.RowDetailsTemplate>
+        </DataGrid>
+        <Button x:Name="btnVolver" Content="Volver" HorizontalAlignment="Left" Margin="376,428,0,0" VerticalAlignment="Top" Width="86" Click="btnVolver_Click_1" Grid.Column="1" Height="32" FontWeight="Bold"/>
+        <Button x:Name="btnListarClientesContrato" Content="Listar Clientes " HorizontalAlignment="Left" Margin="10,428,0,0" VerticalAlignment="Top" Width="145" Click="btnListarClientesContrato_Click" Grid.ColumnSpan="2" Height="32" FontWeight="Bold"/>
+        <Image Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="129" Margin="10,22,0,0" VerticalAlignment="Top" Width="145" Source="Imagenes/Logo Duoc UC Escuela IT.jpg"/>
+        <Image Grid.Column="1" HorizontalAlignment="Left" Height="56" Margin="402,5,0,0" VerticalAlignment="Top" Width="75" Source="Imagenes/white_logo_transparent_background.png" RenderTransformOrigin="0.213,0.554"/>
+        <Button x:Name="btnListarClientes" Content="Agregar Cliente al Contrato" Grid.Column="1" HorizontalAlignment="Left" Margin="62,428,0,0" VerticalAlignment="Top" Width="178" Height="32" FontWeight="Bold" Click="btnListarClientes_Click"/>
+    </Grid>
+</Window>

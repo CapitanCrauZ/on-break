@@ -1,0 +1,73 @@
+﻿<Window x:Class="WpfOnBreak.WindowCliente"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfOnBreak"
+        mc:Ignorable="d"
+        Title="WindowCliente" Height="645" Width="640">
+    <Grid Margin="0,0,-8,-9">
+        <Grid.OpacityMask>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="Black" Offset="0"/>
+                <GradientStop Color="White" Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.OpacityMask>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="Black" Offset="1"/>
+                <GradientStop Color="#FF3894A8" Offset="0.43"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <Label Content="Rut" HorizontalAlignment="Left" Margin="10,64,0,0" VerticalAlignment="Top" IsManipulationEnabled="True" FontWeight="Bold"/>
+        <Label Content="Razón Social" HorizontalAlignment="Left" Margin="10,98,0,0" VerticalAlignment="Top" IsManipulationEnabled="True" FontWeight="Bold"/>
+        <Label Content="Nombre Contacto" HorizontalAlignment="Left" Margin="10,126,0,0" VerticalAlignment="Top" IsManipulationEnabled="True" FontWeight="Bold"/>
+        <Label Content="Mail Contacto" HorizontalAlignment="Left" Margin="10,157,0,0" VerticalAlignment="Top" IsManipulationEnabled="True" FontWeight="Bold"/>
+        <Label Content="Dirección" HorizontalAlignment="Left" Margin="10,185,0,0" VerticalAlignment="Top" IsManipulationEnabled="True" FontWeight="Bold"/>
+        <Label Content="Teléfono" HorizontalAlignment="Left" Margin="10,216,0,0" VerticalAlignment="Top" IsManipulationEnabled="True" FontWeight="Bold"/>
+        <Label Content="Actividad Empresa" HorizontalAlignment="Left" Margin="10,247,0,0" VerticalAlignment="Top" IsManipulationEnabled="True" FontWeight="Bold"/>
+        <Label Content="Tipo Empresa" HorizontalAlignment="Left" Margin="12,278,0,0" VerticalAlignment="Top" IsManipulationEnabled="True" FontWeight="Bold"/>
+        <TextBox x:Name="txtRut" HorizontalAlignment="Left" Height="23" Margin="144,67,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" AutomationProperties.IsOffscreenBehavior="Offscreen" IsManipulationEnabled="True"/>
+        <TextBox x:Name="txtRazonSocial" HorizontalAlignment="Left" Height="23" Margin="144,98,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" IsManipulationEnabled="True"/>
+        <TextBox x:Name="txtNombreContacto" HorizontalAlignment="Left" Height="23" Margin="144,129,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" IsManipulationEnabled="True"/>
+        <TextBox x:Name="txtMailContacto" HorizontalAlignment="Left" Height="23" Margin="144,160,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" IsManipulationEnabled="True"/>
+        <TextBox x:Name="txtDireccion" HorizontalAlignment="Left" Height="23" Margin="144,191,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" IsManipulationEnabled="True"/>
+        <TextBox x:Name="txtTelefono" HorizontalAlignment="Left" Height="23" Margin="144,222,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" IsManipulationEnabled="True" RenderTransformOrigin="0.849,0.435"/>
+        <ComboBox x:Name="cbxActividadEmpresa" HorizontalAlignment="Left" Margin="144,251,0,0" VerticalAlignment="Top" Width="120" IsManipulationEnabled="True" SelectionChanged="cbxActividadEmpresa_SelectionChanged"/>
+        <ComboBox x:Name="cbxTipoEmpresa" HorizontalAlignment="Left" Margin="144,282,0,0" VerticalAlignment="Top" Width="120" IsManipulationEnabled="True"/>
+        <Button x:Name="btnAgregar" Content="Agregar" HorizontalAlignment="Left" Margin="403,271,0,0" VerticalAlignment="Top" Width="95" Click="btnAgregar_Click" IsManipulationEnabled="True" Height="33" RenderTransformOrigin="-0.505,1.788" FontWeight="Bold"/>
+        <Button x:Name="btnBuscar" Content="Buscar" HorizontalAlignment="Left" Margin="403,183,0,0" VerticalAlignment="Top" Width="95" Click="btnBuscar_Click" IsManipulationEnabled="True" Height="31" FontWeight="Bold"/>
+        <Button x:Name="btnModificar" Content="Modificar" HorizontalAlignment="Left" Margin="512,181,0,0" VerticalAlignment="Top" Width="95" Click="btnModificar_Click" IsManipulationEnabled="True" Height="33" FontWeight="Bold"/>
+        <Button x:Name="btnEliminar" Content="Eliminar" HorizontalAlignment="Left" Margin="512,271,0,0" VerticalAlignment="Top" Width="95" Click="btnEliminar_Click" IsManipulationEnabled="True" Height="33" FontWeight="Bold"/>
+        <Button x:Name="btnVolver" Content="Volver" HorizontalAlignment="Left" Margin="530,565,0,0" VerticalAlignment="Top" Width="89" Click="btnVolver_Click" IsManipulationEnabled="True" Height="34" FontWeight="Bold"/>
+        <DataGrid x:Name ="dgClientes"
+                  HorizontalAlignment="Left"
+                  Height="232"
+                  Margin="10,328,0,0" 
+                  VerticalAlignment="Top"
+                  Width="609" 
+                  AutoGenerateColumns="False" SelectionChanged="dgClientes_SelectionChanged" IsReadOnly="True" IsManipulationEnabled="True" FontWeight="Bold">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Rut" Binding ="{Binding Rut}"/>
+                <DataGridTextColumn Header="Razón Social" Binding ="{Binding RazonSocial}"/>
+                <DataGridTextColumn Header="Nombre Contacto" Binding ="{Binding NombreContacto}"/>
+                <DataGridTextColumn Header="Mail Contacto" Binding ="{Binding MailContacto}"/>
+                <DataGridTextColumn Header="Dirección" Binding ="{Binding Direccion}"/>
+                <DataGridTextColumn Header="Teléfono" Binding ="{Binding Telefono}"/>
+                <DataGridTextColumn Header="Actividad Empresa" Binding ="{Binding Actividad}"/>
+                <DataGridTextColumn Header="Tipo Empresa" Binding ="{Binding Tipo}"/>
+            </DataGrid.Columns>
+            <DataGrid.RowDetailsTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding Details}" Margin="10" />
+                </DataTemplate>
+            </DataGrid.RowDetailsTemplate>
+        </DataGrid>
+        <Button x:Name="btnLimpiar" Content="Limpiar" HorizontalAlignment="Left" Margin="403,226,0,0" VerticalAlignment="Top" Width="95" Click="btnLimpiar_Click" IsManipulationEnabled="True" Height="33" FontWeight="Bold"/>
+        <Image HorizontalAlignment="Left" Height="69" Margin="0,-2,0,0" VerticalAlignment="Top" Width="162" Source="Imagenes/Logo Duoc UC Escuela IT.jpg"/>
+        <Image HorizontalAlignment="Left" Height="100" Margin="530,0,0,0" VerticalAlignment="Top" Width="100"/>
+        <Image HorizontalAlignment="Left" Height="90" Margin="533,10,0,0" VerticalAlignment="Top" Width="86" Source="Imagenes/white_logo_transparent_background.png"/>
+        <Button x:Name="btnListar" Content="Listar" HorizontalAlignment="Left" Margin="512,226,0,0" VerticalAlignment="Top" Width="95" Height="34" FontWeight="Bold" Click="btnListar_Click_1"/>
+
+    </Grid>
+</Window>

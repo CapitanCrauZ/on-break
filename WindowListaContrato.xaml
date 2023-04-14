@@ -1,0 +1,84 @@
+﻿<Window x:Class="WpfOnBreak.WindowListaContrato"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfOnBreak"
+        mc:Ignorable="d"
+        Title="WindowListaContrato" Height="508" Width="1060">
+    <Grid>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="Black" Offset="1"/>
+                <GradientStop Color="#FF3894A8" Offset="0.695"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <DataGrid Name ="dgContratos" HorizontalAlignment="Left" Height="264" Margin="120,57,0,0" VerticalAlignment="Top"
+                  Width="690" AutoGenerateColumns="False" SelectionChanged="dgContratos_SelectionChanged" FontWeight="Bold">
+
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Número Contrato" Binding ="{Binding NumeroContrato}"/>
+                <DataGridTextColumn Header="Creacion" Binding ="{Binding Creacion}"/>
+                <DataGridTextColumn Header="Termino" Binding ="{Binding Termino}"/>
+                <DataGridTextColumn Header="Fecha-Hora Inicio" Binding ="{Binding FechaHoraInicio}"/>
+                <DataGridTextColumn Header="Fecha-Hora Termino" Binding ="{Binding FechaHoraTermino}"/>
+                <DataGridTextColumn Header="Dirección" Binding ="{Binding Direccion}"/>
+                <DataGridTextColumn Header="Esta Vigente" Binding ="{Binding EstaVigente}"/>
+                <DataGridTextColumn Header="Tipo" Binding ="{Binding Tipo}"/>
+                <DataGridTextColumn Header="Observaciones" Binding ="{Binding Observaciones}"/>
+                <DataGridTextColumn Header="Asistentes" Binding ="{Binding Asistentes}"/>
+                <DataGridTextColumn Header="Total UF" Binding ="{Binding Total}"/>
+                
+            </DataGrid.Columns>
+            <DataGrid.RowDetailsTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding Details}" Margin="10" />
+                </DataTemplate>
+            </DataGrid.RowDetailsTemplate>
+        </DataGrid>
+        <Button x:Name="btnVolver" Content="Volver" HorizontalAlignment="Left" Margin="948,422,0,0" VerticalAlignment="Top" Width="90" Click="btnVolver_Click_1" Height="37" FontWeight="Bold"/>
+        <DataGrid x:Name="dgTipoEvento"
+            HorizontalAlignment="Left" 
+            Height="264"
+            Margin="815,57,0,0" 
+            VerticalAlignment="Top" 
+            Width="227"
+            AutoGenerateColumns="False" FontWeight="Bold" SelectionChanged="dgTipoEvento_SelectionChanged">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID" Binding ="{Binding Id}"/>
+                <DataGridTextColumn Header="Nombre" Binding ="{Binding Nombre}"/>
+                <DataGridTextColumn Header="Valor Base" Binding ="{Binding ValorBase}"/>
+                <DataGridTextColumn Header="Personal Base" Binding ="{Binding PersonalBase}"/>
+            </DataGrid.Columns>
+            <DataGrid.RowDetailsTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding Details}" Margin="10" />
+                </DataTemplate>
+            </DataGrid.RowDetailsTemplate>
+
+        </DataGrid>
+        <DataGrid x:Name="dgClientes"
+            HorizontalAlignment="Left" 
+            Height="264"
+            Margin="10,57,0,0" 
+            VerticalAlignment="Top" 
+            Width="105"
+            AutoGenerateColumns="False" FontWeight="Bold">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Rut" Binding ="{Binding Rut}"/>
+                <DataGridTextColumn Header="Razón Social" Binding ="{Binding RazonSocial}"/>
+            </DataGrid.Columns>
+            <DataGrid.RowDetailsTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding Details}" Margin="10" />
+                </DataTemplate>
+            </DataGrid.RowDetailsTemplate>
+
+        </DataGrid>
+        <Button x:Name="btn_ListarContrato" Content="Listar Contrato" HorizontalAlignment="Left" Margin="10,422,0,0" VerticalAlignment="Top" Width="105" Height="37" Click="btn_ListarContrato_Click" FontWeight="Bold"/>
+        <Image HorizontalAlignment="Left" Height="106" Margin="10,10,0,0" VerticalAlignment="Top" Width="182" Source="Imagenes/Logo Duoc UC Escuela IT.jpg"/>
+        <Image HorizontalAlignment="Left" Height="47" Margin="991,5,-15,0" VerticalAlignment="Top" Width="71" Source="Imagenes/white_logo_transparent_background.png"/>
+
+
+    </Grid>
+</Window>
